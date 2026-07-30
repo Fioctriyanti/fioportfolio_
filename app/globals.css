@@ -1,0 +1,408 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   FIO OCTRIYANTI — HOLOGRAPHIC INTELLIGENCE DESIGN TOKENS
+   ============================================================ */
+
+:root {
+  --prism-cyan: 139 92 246; /* Diubah ke nuansa ungu agar grid 3D harmonis */
+  --prism-lavender: 214 198 255;
+  --prism-blue: 158 188 255;
+  --prism-glow: 255 255 255;
+
+  /* Palet Hologram Ungu Sesuai Gambar Pendeteksian */
+  --fio-cyan: #9E4ABB;   /* Ungu Amethyst Terang */
+  --fio-blue: #8B4F67;   /* Muted Plum */
+  --fio-purple: #3A004D; /* Deep Royal Violet */
+  --fio-aurora: #D1B3D5; /* Pastel Lavender */
+
+  /* DIKUNCI MATI KE WARNA PILIHAN FIO (#EBE6EF) */
+  --bg-page: #EBE6EF; 
+  --bg-card: #ffffff;
+  --bg-card-2: #f5f2f7;  /* Disesuaikan tipis agar menyatu dengan background */
+
+  /* Warna Teks Dibuat Gelap Agar Kontras & Terbaca Sempurna */
+  --text-h: #3A004D;     /* Menggunakan Ungu Tergelap untuk Judul */
+  --text-body: #51385c;  /* Ungu Gelap Medium untuk isi teks */
+  --text-muted: #8B4F67;  /* Muted Plum untuk teks kecil/keterangan */
+
+  --border-subtle: rgba(58, 0, 77, 0.1);
+  --border-mid: rgba(58, 0, 77, 0.18);
+
+  --hero-bg-0: #EBE6EF;
+  --hero-bg-1: #EBE6EF;
+  --hero-bg-2: #EBE6EF;
+  --hero-text: #3A004D;
+  --hero-text-muted: #8B4F67;
+  --hero-text-faint: rgba(58, 0, 77, 0.35);
+
+  --grad-holo: linear-gradient(135deg, #F0EEF5, #D1B3D5, #9E4ABB, #3A004D);
+  --grad-cb: linear-gradient(135deg, #9E4ABB, #3A004D);
+  --grad-bp: linear-gradient(135deg, #8B4F67, #9E4ABB);
+  --grad-pa: linear-gradient(135deg, #3A004D, #8B4F67);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --dur-fast: 150ms;
+  --dur-base: 250ms;
+  --dur-slow: 500ms;
+  --dur-slower: 700ms;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 9999px;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+/* Tetap mempertahankan dark mode jika suatu saat kamu ingin mengaktifkannya */
+.dark {
+  --prism-cyan: 0 200 240;
+  --prism-lavender: 139 92 246;
+  --prism-blue: 74 124 247;
+  --prism-glow: 240 98 146;
+
+  --bg-page: #06070f;
+  --bg-card: #0e1120;
+  --bg-card-2: #131729;
+  --text-h: #f4f6ff;
+  --text-body: #c9cee0;
+  --text-muted: #8891a8;
+  --border-subtle: rgba(0, 200, 240, 0.12);
+  --border-mid: rgba(0, 200, 240, 0.22);
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-page);
+  color: var(--text-body);
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-mono {
+  font-family: var(--font-jetbrains), ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+
+::selection {
+  background: rgba(158, 74, 187, 0.2);
+  color: var(--text-h);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #9E4ABB, #3A004D);
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid #9E4ABB;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   HERO ANIMATIONS
+   ============================================================ */
+
+/* Infinite marquee scroll */
+.marquee-track {
+  animation: marquee-scroll 38s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Floating ambient particles */
+@keyframes float-particle {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50%       { transform: translateY(-18px) translateX(8px); }
+}
+
+/* Reduced motion overrides */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* ============================================================
+   HIGHLIGHTS — BENTO GRID
+   ============================================================ */
+
+.bento-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "ambassador"
+    "runnerup"
+    "gpa"
+    "international"
+    "projects"
+    "gemini"
+    "efset";
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 640px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "ambassador  runnerup"
+      "gpa         international"
+      "projects    gemini"
+      "projects    efset";
+  }
+}
+
+/* Desktop: 4 columns, full bento layout */
+@media (min-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: 18px;
+    grid-template-areas:
+      "ambassador  ambassador  runnerup    runnerup"
+      "gpa         international  projects  projects"
+      "gemini      efset          projects  projects";
+  }
+}
+
+.bento-ambassador  { grid-area: ambassador; }
+.bento-runnerup    { grid-area: runnerup; }
+.bento-gpa         { grid-area: gpa; }
+.bento-international { grid-area: international; }
+.bento-projects    { grid-area: projects; }
+.bento-gemini      { grid-area: gemini; }
+.bento-efset       { grid-area: efset; }
+
+/* Projects card spans 2 rows on desktop — ensure full height fill */
+@media (min-width: 1024px) {
+  .bento-projects > * {
+    height: 100%;
+  }
+}
+
+/* ============================================================
+   JOURNEY — TIMELINE
+   ============================================================ */
+
+/* Hide horizontal scrollbar on the timeline track (Webkit) */
+.timeline-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Blinking cursor for "Still Writing the Story" coda */
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ============================================================
+   CERTIFICATES — HORIZONTAL SCROLL TRACK
+   ============================================================ */
+.cert-scroll-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* ============================================================
+   CONTACT — AVAILABILITY DOT PULSE
+   ============================================================ */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.55; transform: scale(1.35); }
+}
+
+/* ============================================================
+   TARGETED LIGHT MODE OVERRIDE (FIXED & FULL RE-RENDER)
+   ============================================================ */
+
+/* 1. Kunci Latar Belakang Seluruh Halaman Utama */
+main, 
+section, 
+div[id="about"],
+div[id="highlights"],
+div[id="projects"],
+
+div[id="journey"],
+div[id="contact"] {
+  background-color: #EBE6EF !important;
+  background-image: none !important;
+}
+
+/* 2. Kunci warna kotak/kartu bento agar tetap gelap premium */
+.bento-grid > div,
+.bento-grid a,
+[class*="bento-"],
+div[class*="bg-card"],
+div[class*="bg-slate-"],
+div[class*="bg-[#"] {
+  background-color: #0e1120 !important;
+  border: 1px solid rgba(139, 92, 246, 0.15) !important;
+}
+
+/* 3. PAKSA SEMUA TEKS DI DALAM KARTU GELAP MENJADI LILAC CERAH / PUTIH */
+.bento-grid > div *,
+[class*="bento-"] *,
+div[class*="bg-card"] *,
+div[class*="bg-slate-900"] * {
+  color: #ffffff !important; 
+}
+.bento-grid > div p, [class*="bento-"] p, div[class*="bg-card"] p {
+  color: #94a3b8 !important; 
+}
+
+/* 4. Teks Luar Halaman Kunci ke Ungu Gelap */
+main > section h1,
+main > section h2,
+.section-title,
+#about h2, 
+#highlights h2 {
+  color: #3A004D;
+}
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
